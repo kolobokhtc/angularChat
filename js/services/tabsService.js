@@ -15,11 +15,6 @@ app.factory('tabs', ['$rootScope', function($scope){
 		return false;
 	};
 
-	tabManager.getTitle = function(tabInfo) {
-		console.log("[ title ] -> ", tabInfo.title);
-		tabInfo.title.substr(0, 10);
-	};
-
 	tabManager.resetSelected = function() {
 		angular.forEach(tabManager.tabItems, function(pane) {
 			pane.selected = false;
@@ -33,11 +28,17 @@ app.factory('tabs', ['$rootScope', function($scope){
 		}
 		
 		tabManager.tabItems.push({
-			title: "Tab No: " + id,
+			title: $scope.threads[id].head + ": " + id,
 			thread: $scope.threads[id],
 			thread_id: id,
 			selected: false
 		});
+		
+		var new_index = tabManager.tabItems.length - 1;
+		
+		tabManager.select(new_index);
+		
+		return new_index;
 		
 	};
 	
@@ -49,7 +50,7 @@ app.factory('tabs', ['$rootScope', function($scope){
 			};
 		});
 		
-		console.log($scope.tabManager);
+		return true;
 		
 	};
 	

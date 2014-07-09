@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Chat</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/app.css">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-app="ChatApp">
+	<div class="container-fluid" ng-controller="mainCtrl">
+
+		<div class="row">
+
+			<nav class="navbar navbar-default" role="navigation" ng-controller="navigationCtrl">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">OnlineChat</a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<navlist data="data" primary="name"></navlist>
+
+						<ul class="nav navbar-nav navbar-right">
+							<li ng-if="register"> <a href="#"><span>{{user.name}}</span> Выход</a></li>
+							<li ng-if="!register"><a href="#">Войти</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+
+		</div>
+		<div class="row" ng-controller="chatCtrl">
+			<div class="col-xs-14 col-md-10" ng-controller="chatDialogCtrl" >
+				<div tabs>
+					<div ng-repeat="tabInfo in tabManager.tabItems" pane title="{{ tabInfo.title | limit:15 }}">
+						<p><chatWindow></chatwindow></p>
+					</div>
+				</div>
+				
+
+			</div>
+			<div class="col-xs-4 col-md-2 listOfGroup" ng-controller="chatGroupCtrl">
+				<listGroup data="chatGroups"></listgroup>
+			</div>
+		</div>
+
+
+	</div>
+
+	<script src="app/js/angular/angular.js"></script>
+	<script src="app/js/angular/angular-router.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers/mainCtrl.js"></script>
+	<script src="js/controllers/navigationCtrl.js"></script>
+	<script src="js/controllers/chatCtrl.js"></script>
+	<script src="js/controllers/chatDialogCtrl.js"></script>
+	<script src="js/controllers/chatGroupCtrl.js"></script>
+	<script src="js/directives/listDirective.js"></script>
+	<script src="js/directives/listGroupDirective.js"></script>
+	<script src="js/directives/navListDirective.js"></script>
+	<script src="js/directives/chatWindowDirective.js"></script>
+	<script src="js/directives/messageDirective.js"></script>
+	<script src="js/directives/tabs/tabsDirective.js"></script>
+	<script src="js/directives/tabs/panelDirective.js"></script>
+	<script src="js/filters/tabsLimitFilter.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+</html>

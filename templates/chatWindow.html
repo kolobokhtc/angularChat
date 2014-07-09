@@ -1,7 +1,7 @@
 <div class="panel panel-primary chatWindow">
 	<div class="panel-heading">{{tabInfo.thread.head}}</div>
-	<div class="panel-body" style="max-height: 400px; overflow-y: auto;">
-		<div ng-repeat="dialogData in tabInfo.thread.dialog">
+	<div class="panel-body" style="max-height: 400px; overflow-y: auto;" >
+		<div ng-repeat="dialogData in tabInfo.thread.dialog" autoscroll>
 			<message></message>
 		</div>
 	</div>

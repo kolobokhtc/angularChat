@@ -20,6 +20,19 @@ app.directive('tabs', function() {
 					$scope.select(pane);
 				panes.push(pane);
 			};
+
+			$scope.delPane = function(thread_id) {
+				angular.forEach(panes, function(pane, key) {
+					if (pane.$parent.tabInfo.thread_id == thread_id) {
+						$scope.panes.splice(key, 1);
+					}
+				});
+			}
+
+			$scope.$on('endThread', function(event, data) {
+				console.log('tabs::EndThread ' + data.thread_id);
+				$scope.delPane(data.thread_id);
+			})
 		},
 		template:
 				'<div class="tabbable">' +

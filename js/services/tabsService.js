@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('tabs', function($scope){
+app.factory('tabs', ['$rootScope', function($scope){
 	
 	var tabManager = {};
 
@@ -64,4 +64,6 @@ app.factory('tabs', function($scope){
 		tabManager.tabItems[i].selected = true;
 	};
 	
-});
+	return tabManager;
+	
+}]);

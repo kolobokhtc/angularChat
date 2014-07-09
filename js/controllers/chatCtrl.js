@@ -1,9 +1,9 @@
 'use strict';
 
 
-app.controller('chatCtrl', function($scope) {
+app.controller('chatCtrl', function($rootScope, $scope) {
 
-	$scope.threads = {
+	$rootScope.threads = {
 		1123: {head: 'Vladimir', dialog: [
 				{time: '12:12:21', message: 'Ошибка программы', own: false},
 				{time: '12:13:21', message: 'что случилось', own: true}

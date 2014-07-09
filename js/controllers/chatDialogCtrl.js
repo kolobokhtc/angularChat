@@ -1,68 +1,8 @@
 'use strict';
 
-app.controller('chatDialogCtrl', function($scope) {
+app.controller('chatDialogCtrl', function($scope, tabs) {
 
-	$scope.tabManager = {};
-
-	$scope.tabManager.tabItems = [];
-
-	$scope.tabManager.checkIfMaxTabs = function() {
-		var max = 6;
-		var i = $scope.tabManager.tabItems.length;
-		if (i > max) {
-			return true;
-		}
-		return false;
-	};
-
-	$scope.tabManager.getTitle = function(tabInfo) {
-		console.log("[ title ] -> ", tabInfo.title);
-		tabInfo.title.substr(0, 10);
-	};
-
-	$scope.tabManager.resetSelected = function() {
-		angular.forEach($scope.tabManager.tabItems, function(pane) {
-			pane.selected = false;
-		});
-	};
-
-	$scope.tabManager.addTab = function( id ) {
-		if ($scope.tabManager.checkIfMaxTabs()) {
-			alert("[Max Tabs] You have opened max tabs for this page.");
-			return;
-		}
-		
-		$scope.tabManager.tabItems.push({
-			title: "Tab No: " + id,
-			thread: $scope.threads[id],
-			thread_id: id,
-			selected: false
-		});
-		
-	};
-	
-	$scope.tabManager.deleteTab = function( id ) {
-
-		angular.forEach($scope.tabManager.tabItems, function(tabInfo, key) {
-			if (tabInfo.thread_id == id){
-				$scope.tabManager.tabItems.splice(key, 1);
-			};
-		});
-		
-		console.log($scope.tabManager);
-		
-	};
-	
-	//to select the tab
-	$scope.tabManager.select = function(i) {
-		if ($scope.tabManager.tabItems.length < 1){
-			return false;
-		}
-		angular.forEach($scope.tabManager.tabItems, function(tabInfo) {
-			tabInfo.selected = false;
-		});
-		$scope.tabManager.tabItems[i].selected = true;
-	}
+	$scope.tabManager = tabs;
 
 	$scope.chats = {};
 

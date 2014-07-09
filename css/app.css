@@ -1,0 +1,16 @@
+/* app css stylesheet */
+
+.main-window{
+	height: 100%;
+}
+.listOfGroup{
+
+	border-left: 2px solid #e0e0e0;
+
+}
+
+.chatWindow{
+	/* width: 24%; */ 
+	/* float: left; */
+	margin-right: 5px;
+}

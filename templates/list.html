@@ -1,0 +1,12 @@
+
+<div class="list">
+	<div ng-transclude></div>
+	<ul>
+		<li ng-repeat="item in data| orderBy: secondary">
+			<a href="{{item[href]}}">{{item[primary]}} 
+				{{item[secondary]}}
+			</a>
+		</li>
+
+	</ul>
+</div>

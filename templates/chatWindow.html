@@ -1,0 +1,14 @@
+<div class="panel panel-primary chatWindow">
+	<div class="panel-heading">{{tabInfo.thread.head}}</div>
+	<div class="panel-body" style="max-height: 400px; overflow-y: auto;">
+		<div ng-repeat="dialogData in tabInfo.thread.dialog">
+			<message></message>
+		</div>
+	</div>
+
+	<div class="panel-footer text-right ">
+		<textarea ng-model="tabInfo.thread.message" name="" id="" rows="4" style="width: 100%"></textarea>
+		<button class="btn btn-success" ng-click="send(tabInfo.thread_id)">Отправить</button>
+		<button class="btn btn-warning" ng-click="end(tabInfo.thread_id)">Завершить</button>
+	</div>
+</div>

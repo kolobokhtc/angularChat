@@ -1,0 +1,11 @@
+
+<div class="media" ng-class="{'text-right': !dialogData.own}" style="padding: 5px 0; border-bottom: 1px solid #eee;">
+	<a ng-class="{'pull-right': !dialogData.own, 'pull-left': dialogData.own}" href="#">
+		<img ng-src="img/{{dialogData.own ? 'user.png' : 'operator.png'}}"/>
+	</a>
+	<div class="media-body">
+		<h4 class="media-heading">{{dialogData.time}}</h4>
+		{{dialogData.message}}	
+	</div>
+</div>
+

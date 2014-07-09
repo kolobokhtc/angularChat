@@ -1,0 +1,8 @@
+<div class="list-group">
+	<a href="#" class="list-group-item" ng-repeat="group in chatGroups">
+		<h4 class="list-group-item-heading">{{group.name}}<span class="badge pull-right">{{count(group.threads)}}</span></h4>
+		<p class="list-group-item-text">{{group.description}}</p>
+		<div ng-click="subscibe(thread_id)" ng-repeat="(thread_id, thread) in group.threads">{{thread.head}} ({{thread_id}})</div>
+	</a>
+	<div class="btn btn-success" ng-click="add()">добавить</div>
+</div>
